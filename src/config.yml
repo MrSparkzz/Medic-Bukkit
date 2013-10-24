@@ -1,0 +1,17 @@
+cooldowns:
+    heal:
+        enabled: true
+        time: 30
+    feed:
+        enabled: true
+        time: 30
+    ext:
+        enabled: true
+        time: 30
+    feast:
+        enabled: false
+        time: 5
+
+bandage:
+    enabled: true
+    heal: 2

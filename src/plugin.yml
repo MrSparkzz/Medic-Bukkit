@@ -1,0 +1,102 @@
+name: Medic 3
+version: 1
+main: net.sparkzz.medic.Main
+depend: [SparkzzCore]
+author: MrSparkzz
+description: Be a medic!
+
+commands:
+    check:
+        description: check on players
+    extinguish:
+        description: extinguish players.
+        aliases: [ext]
+    feast:
+        description: get health from hunger level.
+    feed:
+        description: feed players.
+    fulfill:
+        description: heal and feed players.
+    heal:
+        description: heal players.
+
+permissions:
+    medic.*:
+        description: use all medic commands
+        children:
+            medic.cooldown.*: true
+            medic.commands.*: true
+        default: false
+    medic.commands.*:
+        description: use all commands
+        children:
+            medic.commands.self: true
+            medic.commands.others: true
+    medic.cooldown.*:
+        description: bypass all cooldowns
+        children:
+            medic.cooldown.extbypass: true
+            medic.cooldown.feastbypass: true
+            medic.cooldown.feedbypass: true
+            medic.cooldown.healbypass: true
+        default: false
+    medic.commands.self:
+        description: use all commands directed towards yourself
+        children:
+            medic.extinguish.self: true
+            medic.feast: true
+            medic.feed.self: true
+            medic.fulfill.self: true
+            medic.heal.self: true
+    medic.commands.others:
+        description: use all commands direct towards others
+        children:
+            medic.extinguish.others: true
+            medic.feed.others: true
+            medic.fulfill.others: true
+            medic.heal.others: true
+    medic.check.self:
+        description: check in on yourself
+        default: true
+    medic.check.others:
+        description: check in on someone
+        default: true
+    medic.cooldown.extbypass:
+        description: bypass extinguish command cooldown
+        default: op
+    medic.cooldown.feastbypass:
+        description: bypass feast command cooldown
+        default: op
+    medic.cooldown.feedbypass:
+        description: bypass feed command cooldown
+        default: op
+    medic.cooldown.healbypass:
+        description: bypass heal command cooldown
+        default: op
+    medic.extinguish.self:
+        description: extinguish yourself
+        default: op
+    medic.extingiush.others:
+        description: extinguish players
+        default: op
+    medic.feast:
+        description: health from hunger
+        default: true
+    medic.feed.self:
+        description: feed yourself
+        default: op
+    medic.feed.others:
+        description: feed players
+        default: op
+    medic.fulfill.self:
+        description: heal and feed yourself
+        default: op
+    medic.fulfill.others:
+        description: heal and feed players
+        default: op
+    medic.heal.self:
+        description: heal yourself
+        default: op
+    medic.heal.others:
+        description: heal players
+        default: op        
